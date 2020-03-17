@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Expired</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="Registration">הרשמה</string>
+    <string name="AddProduct">הוסף התראה</string>
+    <string name="WatchEdit">צפה בהתראות</string>
+    <string name="NewExpDateFormHeadLine">הכנסת תאריך פג תוקף חדש</string>
+    <string name="David">David</string>
+    <string name="ScanBarCode">סרוק ברקוד</string>
+    <string name="WriteBCNumber">:הקלד ברקוד</string>
+    <string name="Search">חפש מוצר</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="prefs">expiredPreferences</string>
+    <string name="Barcode">מספר ברקוד:</string>
+    <string name="Description">תאור מוצר:</string>
+    <string name="Supplier">שם ספק:</string>
+    <string name="HowToStore">איך לאכסן:</string>
+    <string name="Freeze">הקפאה</string>
+    <string name="Refrigerator">קרור</string>
+    <string name="RoomTemp">טמפרטורת החדר</string>
+    <string name="Submit">הכנס</string>
+    <string name="ExistingProduct">דף הגדרת מוצר</string>
+    <string name="Date">תאריך תפוגה</string>
+    <string name="Amount">כמות המוצרים:</string>
+    <string name="Where">איפה המוצר בחנות:</string>
+    <string name="DaysBefore">כמה ימים לפני להודיע:</string>
+    <string name="PickDate">הכנס תאריך</string>
+    <string name="PickNumber">בחר מספר</string>
+    <string name="RegistrationActivity">דף הרשמה לעובד</string>
+    <string name="FillIn">מלא את הפרטים הבאים:</string>
+    <string name="first_name">שם פרטי</string>
+    <string name="last_name">שם משפחה</string>
+    <string name="store_name">שם החנות</string>
+    <string name="employee_id">מספר עובד</string>
+    <string name="massage_title">הודעה על פג תוקף</string>
+    <string name="erase">מחק הודעה</string>
+    <string name="channel_name">expiredChannel</string>
+    <string name="channel_description">notifications channel</string>
+    <string name="not_registered_massage">you have to register first!</string>
+</resources>

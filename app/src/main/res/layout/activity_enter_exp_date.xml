@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.main.EnterExpDateActivity"
+        android:orientation="vertical"
+        android:id="@+id/enter_new_exp_date_first_layout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/NewExpDateFormHeadLine"
+            android:textSize="26dp"
+            android:layout_marginLeft="70dp"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/david"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/scan_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="25dp"
+                android:text="@string/ScanBarCode"
+                android:background="@color/colorAccent"
+                android:textColor="@color/white"></Button>
+
+                <EditText
+                    android:id="@+id/barcode_read"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="50dp"
+                    android:inputType="number"
+                    android:hint="@string/Barcode"
+                    ></EditText>
+
+
+        </LinearLayout>
+        <Button
+            android:id="@+id/search_product_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Search"
+            android:background="@color/blue"
+            android:textColor="@color/white"
+            android:layout_margin="25dp"></Button>
+        <LinearLayout
+            android:id="@+id/product_def"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="invisible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="150dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="50dp"
+                android:fontFamily="@font/davidbd"
+                android:text="@string/ExistingProduct"
+                android:textColor="@color/colorPrimary"
+                android:textSize="26dp"></TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_margin="15dp"
+                android:baselineAligned="false">
+
+                <TextView
+                    android:id="@+id/barcode_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/Barcode"></TextView>
+                <EditText
+                    android:id="@+id/barcode_edit"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="100dp"
+                    android:inputType="number"></EditText>
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_margin="15dp"
+                android:baselineAligned="false">
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/Description"></TextView>
+                <EditText
+                    android:id="@+id/description_edit"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="100dp"
+                    android:inputType="text"></EditText>
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_margin="15dp"
+                android:baselineAligned="false">
+
+                <TextView
+                    android:id="@+id/supplier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/Supplier"></TextView>
+                <EditText
+                    android:id="@+id/supplier_edit"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="100dp"
+                    android:inputType="text"></EditText>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_margin="15dp"
+                android:baselineAligned="false">
+
+                <TextView
+                    android:id="@+id/HowToStore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/HowToStore"></TextView>
+
+                <RadioGroup
+                    android:id="@+id/how_to_store"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="100dp"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/freeze"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/Freeze"
+                        android:textSize="10dp"></RadioButton>
+                    <RadioButton
+                        android:id="@+id/refrigerator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/Refrigerator"
+                        android:textSize="10dp"></RadioButton>
+                    <RadioButton
+                        android:id="@+id/room_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/RoomTemp"
+                        android:textSize="7.42dp"
+
+                        ></RadioButton>
+                </RadioGroup>
+
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/submit_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Submit"
+                android:layout_marginLeft="160dp"
+                android:layout_marginTop="25dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

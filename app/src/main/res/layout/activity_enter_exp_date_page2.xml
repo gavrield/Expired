@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.main.EnterExpDatePage2"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/NewExpDateFormHeadLine"
+            android:textSize="26dp"
+            android:layout_marginLeft="70dp"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/david"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_margin="15dp"
+            android:baselineAligned="false">
+
+            <TextView
+                android:id="@+id/date_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="150dp"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:onClick="showDatePickerDialog"
+                android:text="@string/PickDate"
+                android:textSize="10dp" />
+
+
+            <TextView
+                android:id="@+id/date_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Date" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_margin="15dp"
+            android:baselineAligned="false">
+
+
+            <TextView
+                android:id="@+id/amount_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="150dp"
+                />
+            <Button
+                android:id="@+id/amount_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/PickNumber"
+                android:textSize="10dp" />
+
+            <TextView
+                android:id="@+id/amount_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Amount"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_margin="15dp"
+            android:baselineAligned="false">
+
+            <EditText
+                android:id="@+id/where_edit"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:inputType="text"/>
+
+            <TextView
+                android:id="@+id/where_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Where"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_margin="15dp"
+            android:baselineAligned="false">
+
+            <TextView
+                android:id="@+id/days_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="150dp"
+                />
+            <Button
+                android:id="@+id/days_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/PickNumber"
+                android:textSize="10dp" />
+
+            <TextView
+                android:id="@+id/when_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/DaysBefore"/>
+
+        </LinearLayout>
+        <Button
+            android:id="@+id/submit_button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Submit"
+            android:layout_marginLeft="160dp"
+            android:layout_marginTop="25dp"/>
+    </LinearLayout>
+</ScrollView>

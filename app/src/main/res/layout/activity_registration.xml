@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.main.RegistrationActivity">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/RegistrationActivity"
+            android:textSize="45dp"
+            android:textColor="@color/colorPrimary"
+            android:textAlignment="center"
+            android:fontFamily="@font/david"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/FillIn"
+            android:textColor="@color/colorPrimary"
+            android:textSize="25dp"
+            android:fontFamily="@font/david"
+            android:layout_margin="25dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_margin="15dp"
+            android:baselineAligned="false">
+
+
+            <EditText
+                android:id="@+id/first_name_edit"
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="100dp"
+                android:inputType="text"
+                android:hint="@string/first_name"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_margin="15dp"
+            android:baselineAligned="false">
+            <EditText
+                android:id="@+id/last_name_edit"
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="100dp"
+                android:inputType="text"
+                android:hint="@string/last_name"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_margin="15dp"
+            android:baselineAligned="false">
+            <EditText
+                android:id="@+id/store_name_edit"
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="100dp"
+                android:inputType="text"
+                android:hint="@string/store_name"
+                />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/submit_button_registration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Submit"
+            android:layout_marginLeft="160dp"
+            android:layout_marginTop="25dp"/>
+
+
+    </LinearLayout>
+</ScrollView>
