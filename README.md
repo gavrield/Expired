@@ -1,2 +1,2 @@
 # Expired
-An android app that keep tracks of expired product in a store
+An android app that keep track of expired product in a store
