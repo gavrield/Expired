@@ -14,13 +14,15 @@ import com.myapps.expired.R;
 public class MenuActivity extends AppCompatActivity {
 
     private Button addExpiration;
-    private Button registrationButton;
+    private Button watchNotifications;
+    private SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         addExpiration = findViewById(R.id.addButton);
+        watchNotifications = findViewById(R.id.watch_button);
         final Context context = this;
         addExpiration.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,11 +31,16 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        registrationButton = findViewById(R.id.regButton);
-        registrationButton.setOnClickListener(new View.OnClickListener() {
+        preferences = getSharedPreferences(getString(R.string.prefs), MODE_PRIVATE);
+        if (preferences.getString("store", null) == null)
+         {
+             Intent intent = new Intent(context, RegistrationActivity.class);
+             startActivity(intent);
+         }
+        watchNotifications.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, RegistrationActivity.class);
+                Intent intent = new Intent(context, Massages.class);
                 startActivity(intent);
             }
         });

@@ -17,6 +17,9 @@ public class DatePickerFragment
         extends DialogFragment
         implements DatePickerDialog.OnDateSetListener {
 
+    private long oneDay = DateUtils.DAY_IN_MILLIS;
+    private long oneYear = DateUtils.YEAR_IN_MILLIS + oneDay; // DateUtils.YEAR_IN_MILLIS is only 364 days
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the current date as the default date in the picker
@@ -40,15 +43,49 @@ public class DatePickerFragment
 
     private long convertToMillis(int year, int month, int day){
 
-
-        long oneYear = DateUtils.YEAR_IN_MILLIS;
-        long oneMonth = DateUtils.MINUTE_IN_MILLIS ;
-        long oneDay = DateUtils.DAY_IN_MILLIS;
-        long yearInMillis = (year - 1970)*oneYear;
-        long monthInMillis = month*oneMonth;
+        int leap = year%4 == 0 ? 1 : 0;
+        long yearInMillis = convertYearToMillis(year);
+        long monthInMillis = convertMonthToMillis(month + 1, leap); //months start in 0
         long dayInMillis = day*oneDay;
-        long conversion = yearInMillis + monthInMillis + dayInMillis;
+        long conversion = yearInMillis + monthInMillis + dayInMillis - 1;
         return conversion;
+    }
+
+    private long convertYearToMillis(int year) {
+        int normaliseYear = year - 1970;
+        int leapYears = normaliseYear/4;
+        return normaliseYear*oneYear + leapYears*oneDay;
+    }
+
+    private long convertMonthToMillis(int month, int leap) {
+
+        switch (month) {
+            case 1:
+                return 0;
+            case 2:
+                return 31*oneDay;
+            case 3:
+                return convertMonthToMillis(2, leap) + 28*oneDay + leap*oneDay;
+            case 4:
+                return convertMonthToMillis(3, leap) + 31*oneDay;
+            case 5:
+                return convertMonthToMillis(4, leap) + 30*oneDay;
+            case 6:
+                return convertMonthToMillis(5, leap) + 31*oneDay;
+            case 7:
+                return convertMonthToMillis(6, leap) + 30*oneDay;
+            case 8:
+                return convertMonthToMillis(7, leap) + 31*oneDay;
+            case 9:
+                return convertMonthToMillis(8, leap) + 31*oneDay;
+            case 10:
+                return convertMonthToMillis(9, leap) + 30*oneDay;
+            case 11:
+                return convertMonthToMillis(10, leap) + 31*oneDay;
+            case 12:
+                return convertMonthToMillis(11, leap) + 30*oneDay;
+            default: return convertMonthToMillis(1, leap);
+        }
     }
 
 }

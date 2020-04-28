@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.text.format.DateUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,10 +40,8 @@ public class EnterExpDatePage2 extends AppCompatActivity {
     private String product;
 
     private TextView dateView;
-    private TextView amountView;
-    private TextView daysBeforeView;
-    private Button amountButton;
-    private Button daysBeforeButton;
+    private EditText amountEdit;
+    private EditText daysBeforeEdit;
     private Button submitButton;
 
     private EntityFactory entityFactory = new EntityFactory();
@@ -56,36 +55,35 @@ public class EnterExpDatePage2 extends AppCompatActivity {
         preferences = getSharedPreferences(getString(R.string.prefs), MODE_PRIVATE);
         setContentView(R.layout.activity_enter_exp_date_page2);
         dateView = findViewById(R.id.date_view);
-        amountView = findViewById(R.id.amount_view);
-        daysBeforeView = findViewById(R.id.days_view);
-        amountButton = findViewById(R.id.amount_button);
-        daysBeforeButton = findViewById(R.id.days_button);
+        amountEdit = findViewById(R.id.amount_edit);
+        daysBeforeEdit = findViewById(R.id.days_edit);
         submitButton = findViewById(R.id.submit_button2);
 
         store = preferences.getString("store", null);
         product = getIntent().getExtras().getString("productBarcode");
 
-        amountButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                NumberPickerFragment numberPickerFragment = new NumberPickerFragment(NumberPickerFragment.AMOUNT);
-                numberPickerFragment.setPickerValues(MINVALUE, MAX_PRODUCTS);
-                numberPickerFragment.show(getSupportFragmentManager(), "AmountPicker");
-            }
-        });
-        daysBeforeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                NumberPickerFragment numberPickerFragment =
-                        new NumberPickerFragment(NumberPickerFragment.DAYS);
-                numberPickerFragment.setPickerValues(MINVALUE, MAX_DAYS);
-                numberPickerFragment.show(getSupportFragmentManager(), "DaysBeforePicker");
-            }
-        });
         final Context context = this;
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                try{
+                    setAmount(
+                            Integer.parseInt(amountEdit.getText().toString())
+                    );
+                    setDaysBefore(
+                            Integer.parseInt(daysBeforeEdit.getText().toString())
+                    );
+                } catch (NumberFormatException e){
+                    Toast.makeText
+                            (
+                                    EnterExpDatePage2.this,
+                                    "numbers only!",
+                                    Toast.LENGTH_SHORT
+                            ).show();
+                    return;
+                }
+
                 try {
                     expirationEventEntity = entityFactory
                             .createNewExpirationEvent(store, product, amount, date, daysBefore);
@@ -107,8 +105,7 @@ public class EnterExpDatePage2 extends AppCompatActivity {
                         .child("expirationEvents")
                         .child(key)
                         .setValue(expirationEventEntity);
-                Intent nextPage = new Intent(context, MenuActivity.class);
-                startActivity(nextPage);
+                finish();
             }
         });
 
@@ -126,13 +123,27 @@ public class EnterExpDatePage2 extends AppCompatActivity {
     }
 
     public void setAmount(int amount) {
-        this.amount = amount;
-        amountView.setText(amount);
+        if (amount > 0)
+            this.amount = amount;
+        else
+            Toast.makeText
+                    (
+                            EnterExpDatePage2.this,
+                            "must be above 0",
+                            Toast.LENGTH_SHORT
+                    ).show();
     }
 
     public void setDaysBefore(int daysBefore) {
-        this.daysBefore = daysBefore;
-        daysBeforeView.setText(daysBefore);
+        if (daysBefore >= 1 && daysBefore <= 7)
+            this.daysBefore = daysBefore;
+        else
+            Toast.makeText
+                    (
+                            EnterExpDatePage2.this,
+                            "must be between 1-7",
+                            Toast.LENGTH_SHORT
+                    ).show();
     }
 
     private void uploadNotification(){

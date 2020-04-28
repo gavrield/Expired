@@ -40,4 +40,6 @@
     <string name="channel_name">expiredChannel</string>
     <string name="channel_description">notifications channel</string>
     <string name="not_registered_massage">you have to register first!</string>
+    <string name="DaysBeforeLimit">מספר בין 1 - 7</string>
+    <string name="amountLimit">מעל 0 במספרים</string>
 </resources>

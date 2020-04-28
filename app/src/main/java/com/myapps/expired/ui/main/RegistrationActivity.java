@@ -46,13 +46,6 @@ public class RegistrationActivity extends AppCompatActivity {
         storeName = findViewById(R.id.store_name_edit);
         submitButton = findViewById(R.id.submit_button_registration);
         preferences = getSharedPreferences(getString(R.string.prefs), MODE_PRIVATE);
-        if (preferences.getString("store", null) == null)
-        {
-            Toast.makeText(this,
-                    "you already registered!"
-                    , Toast.LENGTH_SHORT ).show();
-            finish();
-        }
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
